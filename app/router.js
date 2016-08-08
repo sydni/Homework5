@@ -11,16 +11,16 @@ router.get('/', (req, res) => {
 // example!
 // on routes that end in /posts
 // ----------------------------------------------------
+
 router.route('/posts')
-  .post(/* someMethod*/ Posts.createPost(req, res))
-  .get(/* someMethod*/ Posts.getPosts());
+  .post(Posts.createPost)
+  .get(Posts.getPosts);
 
 
 router.route('/posts/:id')
-  .put(/* someMethod*/Posts.updatePost())
-  .get(/* someMethod*/ Posts.getPost())
-  .delete(/* someMethod*/Posts.deletePost());
+  .put(Posts.updatePost)
+  .get(Posts.getPost)
+  .delete(Posts.deletePost);
 
-// /your routes will go here
 
 export default router;
