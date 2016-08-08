@@ -2,7 +2,7 @@ import Post from '../models/post-model';
 
 const cleanPosts = (posts) => {
   return posts.map(post => {
-    return { id: post._id, title: post.title, tags: post.tags };
+    return { id: post._id, title: post.title, tags: post.tags, content: post.content };
   });
 };
 
@@ -36,7 +36,8 @@ export const getPosts = (req, res) => {
 export const getPost = (req, res) => {
   Post.findById(req.params.id)
   .then(post => {
-    res.json(cleanPosts([post]));
+    console.log(post);
+    res.json(post);
   })
   .catch(error => {
     res.json({ error });
@@ -68,8 +69,10 @@ export const updatePost = (req, res) => {
     if (req.body.content) {
       post.content = req.body.content;
     }
-    post.save();
-    res.json(cleanPosts([post]));
+    return post.save();
+  })
+  .then(post => {
+    res.json(post);
   })
   .catch(error => {
     res.json({ error });
