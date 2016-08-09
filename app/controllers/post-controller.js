@@ -59,7 +59,6 @@ export const deletePost = (req, res) => {
 export const updatePost = (req, res) => {
   Post.findById(req.params.id)
   .then(post => {
-    // const newpost = new Post();
     if (req.body.title) {
       post.title = req.body.title;
     }
