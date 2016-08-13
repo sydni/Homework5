@@ -1,9 +1,3 @@
-# starter express app template
+# Homework 5 Part 2
 
-* node with babel
-* expressjs
-* airbnb eslint rules
-
-Procfile set up to run on [heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#deploy-the-app)
-
-
+We added user authentication! SydniBlog now supports users and sign up through a user model and a salt+hash method for saving the password.
